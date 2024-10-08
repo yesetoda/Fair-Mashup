@@ -6,23 +6,20 @@ import (
 	"html/template"
 	"io"
 	"net/http"
-
 	"strings"
 )
 
 func main() {
-	// Serve static files
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
-	// Handle the main page and API
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/api/problems", problemsHandler)
+	http.HandleFunc("/api/tags", tagsHandler)
 
-	fmt.Println("Server started at http://localhost:8080")
+	fmt.Println("Server started at fair-mashup.onrender.com")
 	http.ListenAndServe(":8080", nil)
 }
 
-// indexHandler serves the HTML file
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("templates/index.html"))
 	err := tmpl.Execute(w, nil)
@@ -31,12 +28,13 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// problemsHandler processes problem requests from the frontend
 func problemsHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 		return
 	}
+
+	fmt.Printf("Received request: %s %s\n", r.Method, r.URL)
 
 	var requestData struct {
 		Participants  []string `json:"participants"`
@@ -45,30 +43,67 @@ func problemsHandler(w http.ResponseWriter, r *http.Request) {
 		MaxDifficulty int      `json:"maxDifficulty"`
 	}
 
-	// Parse JSON from the request body
 	err := json.NewDecoder(r.Body).Decode(&requestData)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
 
-	// Get participants' solved and tried problems
+	fmt.Printf("Request Data: %+v\n", requestData)
+
 	solved, tried := getSolvedAndTriedProblems(requestData.Participants)
 
-	// Get all problems matching the requested tags
 	allProblems := getProblemsByTags(requestData.Tags)
 
-	// Filter problems by difficulty and ensure they haven't been solved/tried
 	validProblems := filterValidProblems(allProblems, solved, tried, requestData.MinDifficulty, requestData.MaxDifficulty)
 
-	// Limit valid problems to 10
 	refinedProblems := validProblems[:min(len(validProblems), 10)]
 
-	// Send the response as JSON
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"validProblems": refinedProblems,
 	})
+}
+
+func tagsHandler(w http.ResponseWriter, r *http.Request) {
+	tags := []string{
+		"2-sat",
+		"binary search",
+		"bitmasks",
+		"brute force",
+		"combinatorics",
+		"constructive algorithms",
+		"data structures",
+		"dfs and similar",
+		"divide and conquer",
+		"dp",
+		"dsu",
+		"expression parsing",
+		"fft",
+		"flows",
+		"games",
+		"geometry",
+		"graphs",
+		"greedy",
+		"hashing",
+		"implementation",
+		"interactive",
+		"math",
+		"matrices",
+		"meet-in-the-middle",
+		"number theory",
+		"probabilities",
+		"schedules",
+		"shortest paths",
+		"sortings",
+		"string suffix structures",
+		"strings",
+		"ternary search",
+		"trees",
+		"two pointers",
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(tags)
 }
 
 func getSolvedAndTriedProblems(participants []string) (map[string]bool, map[string]bool) {
@@ -151,7 +186,7 @@ func min(a, b int) int {
 }
 
 type Submissions []struct {
-	ContestID int    `json:"contestId"`
+	ContestID int `json:"contestId"`
 	Problem   struct {
 		Index string `json:"index"`
 	} `json:"problem"`
@@ -159,7 +194,7 @@ type Submissions []struct {
 }
 
 type StatusResponse struct {
-	Status string     `json:"status"`
+	Status string      `json:"status"`
 	Result Submissions `json:"result"`
 }
 

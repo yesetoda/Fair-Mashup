@@ -7,47 +7,81 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <h1>Codeforces Contest Filter</h1>
-    <div class="form-container">
-        <form id="tags-difficulty-form">
-            <h2>Participants</h2>
-            <label for="participants">Enter Codeforces Handles (comma separated):</label>
-            <input type="text" id="participants" name="participants" required>
+    <header>
+        <h1>Codeforces Contest Filter</h1>
+    </header>
+    
+    <main>
+        <div class="form-container">
+            <form id="tags-difficulty-form">
+                <h2>Participants</h2>
+                <label for="participants" class="label">Enter Codeforces Handles (comma separated):</label>
+                <input type="text" id="participants" name="participants" required placeholder="e.g. user1, user2" class="input">
 
-            <h2>Tags and Difficulty</h2>
-            <label for="tags">Enter Tags (comma separated):</label>
-            <input type="text" id="tags" name="tags">
-            <label for="min-difficulty">Minimum Difficulty:</label>
-            <input type="number" id="min-difficulty" name="min-difficulty" required min="800">
-            <label for="max-difficulty">Maximum Difficulty:</label>
-            <input type="number" id="max-difficulty" name="max-difficulty" required min="800">
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+                <h2>Tags and Difficulty</h2>
+                <label for="tags" class="label">Select Tags:</label>
+                <div id="tags-select-container">
+                    <button type="button" id="select-tags-btn" class="button">Select Tags</button>
+                    <div id="tags-dropdown" class="dropdown hidden">
+                        <!-- Tag options will be dynamically added here -->
+                    </div>
+                </div>
+                <div id="selected-tags" class="selected-tags"></div>
 
-    <div class="loading-container" id="loading-container" style="display: none;">
-        Loading...
-    </div>
-    <div class="no-data-container" id="no-data-container" style="display: none;">
-        No problem matching the request
-    </div>
-    <div class="output-container" id="output-container" style="display: none;">
-        <h2>Valid Problems</h2>
-        <table id="valid-problems-table">
-            <thead>
-                <tr>
-                    <th>Problem Name</th>
-                    <th>Difficulty</th>
-                    <th>Tags</th>
-                    <th>Problem Code</th>
-                    <th>Problem Link</th>
-                </tr>
-            </thead>
-            <tbody id="valid-problems">
-                <!-- Results will appear here -->
-            </tbody>
-        </table>
-    </div>
+                <label for="min-difficulty" class="label">Minimum Difficulty:</label>
+                <input type="number" id="min-difficulty" name="min-difficulty" required min="800" placeholder="Min difficulty" class="input">
+
+                <label for="max-difficulty" class="label">Maximum Difficulty:</label>
+                <input type="number" id="max-difficulty" name="max-difficulty" required min="800" placeholder="Max difficulty" class="input">
+                
+                <button type="submit" class="button submit-btn">Submit</button>
+            </form>
+        </div>
+    
+        <div class="loading-container hidden" id="loading-container"style="display: none;;">
+            <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster" style="align-content: center;">
+                <div class="wheel"></div>
+                <div class="hamster">
+                    <div class="hamster__body">
+                        <div class="hamster__head">
+                            <div class="hamster__ear"></div>
+                            <div class="hamster__eye"></div>
+                            <div class="hamster__nose"></div>
+                        </div>
+                        <div class="hamster__limb hamster__limb--fr"></div>
+                        <div class="hamster__limb hamster__limb--fl"></div>
+                        <div class="hamster__limb hamster__limb--br"></div>
+                        <div class="hamster__limb hamster__limb--bl"></div>
+                        <div class="hamster__tail"></div>
+                    </div>
+                </div>
+                <div class="spoke"></div>
+            </div>
+        </div>
+        
+        <div class="no-data-container hidden" id="no-data-container" style="display: none;">
+            No problem matching the request.
+        </div>
+        
+        <div class="output-container hidden" id="output-container" style="display: none;">
+            <h2>Valid Problems</h2>
+            <table id="valid-problems-table">
+                <thead>
+                    <tr>
+                        <th>Problem Name</th>
+                        <th>Difficulty</th>
+                        <th>Tags</th>
+                        <th>Problem Code</th>
+                        <th>Problem Link</th>
+                    </tr>
+                </thead>
+                <tbody id="valid-problems">
+                    <!-- Results will appear here -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
     <script src="/static/scripts.js"></script>
 </body>
 </html>
