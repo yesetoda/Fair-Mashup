@@ -104,7 +104,7 @@ Some cool features we’re thinking about:
 
 ## 🎉 Deployed Project
 
-Want to check out the live version? [Click here to explore Fair-Mashup!](https://your-deployed-link.com) 🌐
+Want to check out the live version? [Click here to explore Fair-Mashup!](https://fair-mashup.onrender.com/) 🌐
 
 ---
 
