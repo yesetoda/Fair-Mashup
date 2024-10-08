@@ -122,7 +122,7 @@ Here's a footer for your README that includes your contact information:
 Feel free to reach out if you have any questions or suggestions:
 
 - **Yeneineh Seiba Tonja**  
-  Email: [yeneineh.seiba@gmail.com](mailto:yeneinehseiba@gmail.com)  
+  Email: [yeneineh seiba](mailto:yeneinehseiba@gmail.com)  
   GitHub: [yesetoda](https://github.com/yesetoda)  
   LinkedIn: [yeneineh (yesetoda) seiba](https://www.linkedin.com/in/yeneineh-seiba-88110227b/)
 ---
