@@ -113,22 +113,13 @@ Want to check out the live version? [Click here to explore Fair-Mashup!](https:/
 Found a bug? Have a cool feature idea? Pull requests are welcome! You can also open an issue if you want to discuss anything related to the project. Let’s build something awesome together!
 
 ---
-Here's a footer for your README that includes your contact information:
-
----
-
 ## 📞 Contact Information
 
 Feel free to reach out if you have any questions or suggestions:
 
 - **Yeneineh Seiba Tonja**  
-  Email: [yeneineh.seiba@gmail.com](mailto:yeneineh.seiba@gmail.com)  
+  Email: [yeneineh seiba](mailto:yeneinehseiba@gmail.com)  
   GitHub: [yesetoda](https://github.com/yesetoda)  
   LinkedIn: [yeneineh (yesetoda) seiba](https://www.linkedin.com/in/yeneineh-seiba-88110227b/)
 ---
-
-You can customize the LinkedIn link or add any other social media links as needed!ye
-
----
-
 Happy mashup-ing! 🎉
