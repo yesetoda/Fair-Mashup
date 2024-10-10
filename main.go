@@ -7,6 +7,7 @@ import (
 	"io"
 	"math/rand"
 	"net/http"
+	"sort"
 	"strings"
 	"sync"
 	"time"
@@ -14,6 +15,14 @@ import (
 
 const maxWorkers = 5
 const apiTimeout = 10 * time.Second
+
+type ByRating []ProblemInfo
+
+func (a ByRating) Len() int { return len(a) }
+
+func (a ByRating) Swap(i, j int) { a[i], a[j] = a[j], a[i] }
+
+func (a ByRating) Less(i, j int) bool { return a[i].Rating < a[j].Rating }
 
 func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
@@ -66,8 +75,8 @@ func problemsHandler(w http.ResponseWriter, r *http.Request) {
 	rand.Shuffle(len(validProblems), func(i, j int) {
 		validProblems[i], validProblems[j] = validProblems[j], validProblems[i]
 	})
-	refinedProblems := validProblems[:min(len(validProblems), 10)]
-
+	refinedProblems := validProblems[:min(len(validProblems), 20)]
+	sort.Sort(ByRating(refinedProblems))
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(map[string]interface{}{
 		"validProblems": refinedProblems,
@@ -99,7 +108,7 @@ func workerPoolGetSolvedAndTriedProblems(participants []string) (map[string]bool
 	resultsChan := make(chan result, len(participants))
 
 	var wg sync.WaitGroup
-	sem := make(chan struct{}, maxWorkers) 
+	sem := make(chan struct{}, maxWorkers)
 	for _, handle := range participants {
 		handle := strings.TrimSpace(handle)
 		wg.Add(1)
@@ -107,7 +116,7 @@ func workerPoolGetSolvedAndTriedProblems(participants []string) (map[string]bool
 		go func(handle string) {
 			defer wg.Done()
 
-			sem <- struct{}{} 
+			sem <- struct{}{}
 			defer func() { <-sem }()
 
 			solvedLocal, triedLocal := getSolvedAndTriedForHandle(handle)
