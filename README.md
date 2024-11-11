@@ -1,118 +1,88 @@
-
 # 🎉 Fair-Mashup 🎯
 
 Welcome to **Fair-Mashup** – the ultimate tool for creating fair and balanced Codeforces mashup contests! 🎊
 
 ---
 
-## 🌟 What is Fair-Mashup?
+## 🌟 Project Overview
 
-**Fair-Mashup** is a simple yet powerful web-based tool designed to help you build Codeforces mashup contests. The twist? None of the participants in the contest will have solved or even attempted  the selected problems before! 🔥
+### Description
+**Fair-Mashup** is a web-based tool designed to help you build Codeforces mashup contests with a unique feature: none of the participants will have solved or attempted the selected problems before! 🔥 Whether you're a competitive programmer, a trainer, or a fan of mashups, this tool ensures fair play by selecting problems that match your preferences in difficulty and tags.
 
-Whether you're a competitive programmer, a trainer, or just a fan of mashups, this tool helps you select problems that match your difficulty preferences and tags, ensuring a level playing field for all participants. No more sneaky participants with unfair advantages! 😉
-
----
-
-## 🚀 Features
-
-- **Participant Filtering:** Add the participants’ usernames and ensure the selected problems haven’t been solved or even attempted (with wrong answers) by any of them.
-- **Problem Tags:** Choose problems based on specific tags like *dp*, *graphs*, *greedy*, and many more.
-- **Difficulty Range:** Set a minimum and maximum difficulty level to target problems that suit your contest's skill range.
-- **Problem Links:** Get direct links to unsolved problems from Codeforces – just one click away!
-- **Mashup-ready:** Once the problems are generated, you can use them to create a Codeforces mashup directly.
+### Key Features
+- **Participant Filtering**: Filter problems based on users’ previous attempts or completions.
+- **Problem Tags**: Choose problems by tags like *dp*, *graphs*, *greedy*, etc.
+- **Difficulty Range**: Target problems within a specific difficulty range.
+- **Problem Links**: Access unsolved problems directly on Codeforces with one click.
 
 ---
 
-## 🛠️ How It Works
+## 🛠️ Tools Used
 
-1. Enter the participants' usernames.
-2. Select the tags you're interested in.
-3. Define a difficulty range (minimum and maximum problem ratings).
-4. Hit that submit button! 🎯
-5. Get a list of unsolved problems that participants haven’t solved or even attempted with wrong answers, tailored to your mashup.
-6. Click on the links and open the problems directly on Codeforces.
+- **Go** 🐹 – Backend logic for data fetching and filtering.
+- **HTML/CSS/JavaScript** 🎨 – Frontend for inputting data and displaying results.
+- **No external dependencies** 📦 – Built solely with native technologies for simplicity.
 
 ---
 
-## 🧑‍💻 What's Under the Hood?
+## 📚 Topics
 
-**Fair-Mashup** is built with:
-
-- **Go** 🐹 – Our backend that handles the heavy lifting of fetching data from the Codeforces API and filtering it based on participants’ solved problems and attempted problems with wrong answers.
-- **HTML/CSS/JavaScript** 🎨 – A clean and responsive frontend interface that makes it super easy to input data and view the results.
-- **No external dependencies** 📦 – We like to keep things simple. No need for Node.js or any other package managers. Just pure Go, HTML, CSS, and JavaScript.
+- Competitive Programming
+- Problem Filtering
+- Mashup Contests
+- Codeforces API
 
 ---
 
-## 🛠️ Installation
+## 🚀 Installation Guide
 
-Getting started is super easy:
-
-1. **Clone the repo**:
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/yesetoda/Fair-Mashup.git
    cd Fair-Mashup
    ```
-   
+
 2. **Run the Go server**:
    ```bash
    go run main.go
    ```
 
-3. **Open the HTML page**:  
-   Open `localhost:8080` in your favorite browser, and you're ready to go!
-
-4. **Enjoy crafting your contest!** 🎉
+3. **Access the Interface**:
+   Open `localhost:8080` in your browser, and start building your mashup!
 
 ---
 
-## 🎨 Interface
+## 💻 Usage Guide
 
-Once you load the page, you’ll find a simple form where you can:
+Once the page is loaded, you can:
 
-- Enter participant handles
-- Select problem tags
-- Set the difficulty range
+- **Enter participant handles**: Input the usernames of contest participants.
+- **Select problem tags**: Choose relevant problem tags such as *dp*, *graphs*, *greedy*.
+- **Set a difficulty range**: Specify the minimum and maximum problem ratings for your contest.
 
-After hitting submit, you’ll get a neatly formatted table with:
-
+After hitting **submit**, a table will display:
 - **Problem Name** 🏷️
 - **Difficulty** 📊
-- **Tags** (displayed as bullet points 🔵 for easy readability)
-- **Contest ID and Index**
-- A **link to solve the problem on Codeforces** (because time is money, right? 💸)
+- **Tags** 🔵
+- **Contest ID and Index** 
+- A **link to solve the problem** directly on Codeforces.
 
 ---
 
-## 💡 Use Cases
+## 💡 Future Enhancements
 
-- **Trainers**: Ensure no participant has prior experience with the problems.
-- **Friends**: Want to have a friendly contest? This tool ensures fair play!
-- **Competitive Programming Groups**: Plan a contest that is perfectly balanced between all participants.
-
----
-
-## 🔧 Future Improvements
-
-Some cool features we’re thinking about:
-
-- Adding more filtering options (like contest types or time constraints).
-- Adding support for multiple programming contest platforms (Codeforces is just the beginning!).
-- Dynamic difficulty adjustment based on participants’ previous performances.
+- **Expanded Filtering Options**: Add more filtering criteria like contest types or time constraints.
+- **Support for Other Platforms**: Extend support for multiple programming contest platforms beyond Codeforces.
+- **Dynamic Difficulty Adjustment**: Modify problem selection based on participants' previous performances.
 
 ---
 
-## 🎉 Deployed Project
+## 🌐 Deployed Project
 
 Want to check out the live version? [Click here to explore Fair-Mashup!](https://fair-mashup.onrender.com/) 🌐
 
 ---
 
-## 🤝 Contributing
-
-Found a bug? Have a cool feature idea? Pull requests are welcome! You can also open an issue if you want to discuss anything related to the project. Let’s build something awesome together!
-
----
 ## 📞 Contact Information
 
 Feel free to reach out if you have any questions or suggestions:
@@ -121,5 +91,7 @@ Feel free to reach out if you have any questions or suggestions:
   Email: [yeneineh seiba](mailto:yeneinehseiba@gmail.com)  
   GitHub: [yesetoda](https://github.com/yesetoda)  
   LinkedIn: [yeneineh (yesetoda) seiba](https://www.linkedin.com/in/yeneineh-seiba-88110227b/)
+
 ---
+
 Happy mashup-ing! 🎉
