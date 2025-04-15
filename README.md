@@ -1,111 +1,122 @@
-# 🎉 Fair Mashup
+# Fair-Mashup
 
-## 📖 Overview
+[![Go Version](https://img.shields.io/github/go-mod/go-version/yesetoda/fair-mashup?style=flat-square)](https://golang.org/) [![Build Status](https://img.shields.io/github/actions/workflow/status/yesetoda/fair-mashup/go.yml?branch=main&style=flat-square)](https://github.com/yesetoda/fair-mashup/actions) [![GitHub issues](https://img.shields.io/github/issues/yesetoda/fair-mashup?style=flat-square)](https://github.com/yesetoda/fair-mashup/issues) [![GitHub stars](https://img.shields.io/github/stars/yesetoda/fair-mashup?style=flat-square)](https://github.com/yesetoda/fair-mashup/stargazers) [![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=flat-square)](https://fair-mashup.onrender.com/)
 
-**Fair Mashup** is a lightweight web platform designed to showcase various fairs and expos in one clean, accessible place. Built entirely in Go using templates and static files, it dynamically serves pages without requiring a frontend framework, database, or authentication. Perfect for simple public event listings!
-
----
-
-## 📂 Table of Contents
-
-1. [Technologies Used](#-technologies-used)  
-2. [Features](#-features)  
-3. [Installation and Setup](#-installation-and-setup)  
-4. [Usage](#-usage)  
-5. [Contribution Guidelines](#-contribution-guidelines)  
-6. [Testing](#-testing)  
-7. [Live Demo](#-live-demo)  
-8. [Contact Information](#-contact-information)
+Welcome to **Fair-Mashup** – the ultimate tool for creating fair and balanced Codeforces mashup contests!
 
 ---
 
-## 🛠️ Technologies Used
+## Overview
 
-- **Go (Golang):** Backend + templating system for generating HTML pages.  
-- **HTML & CSS:** For styling and layout of static pages.  
-- **Go’s `net/http` package:** Used to build the core web server.
+**Fair-Mashup** is a simple yet powerful web-based application built entirely in Go. It enables you to build Codeforces mashup contests where none of the participants will have solved—or even attempted—the selected problems before! This approach guarantees a level playing field, ensuring that your contests remain both challenging and impartial.
 
 ---
 
-## 📚 Features
+## How It Works
 
-- ✅ Static fair/event listing with templated HTML  
-- ✅ Fully backend-rendered frontend using Go  
-- ✅ Simple and fast, no external dependencies  
-- ✅ Clean layout with embedded CSS  
-- ✅ Easy to deploy anywhere that supports Go
+1. **Participants:**  
+   Enter Codeforces handles (comma separated) for the contestants.  
+   **Example:** `user1, user2, user3`
+
+2. **Tags and Difficulty:**  
+   - **Select Tags:** Filter problems by specific topics or themes.  
+   - **Difficulty Range:** Specify minimum and maximum difficulty levels to curate your contest problems.
+
+3. **Submit:**  
+   After configuring the participants, tags, and difficulty range, click **Submit** to generate a contest where each problem is new to all contestants.
 
 ---
 
-## ⚙️ Installation and Setup
+## Technologies Used
+
+- **Go (Golang):**  
+  Powers both the backend and the server-side rendered frontend using Go's built-in HTTP server and templating system.
+
+- **HTML & CSS:**  
+  Used to build and style static pages, ensuring a clean and responsive user interface.
+
+---
+
+## Installation and Setup
 
 ### Prerequisites
 
-- **Go 1.18+** installed
+- **Go 1.18+** must be installed on your machine.
 
 ### Steps
 
-1. **Clone the repository:**
+1. **Clone the Repository:**
    ```bash
    git clone https://github.com/yesetoda/fair-mashup.git
    cd fair-mashup
    ```
-
-2. **Run the app:**
+2. **Install Dependencies:**
+   Update Go modules:
+   ```bash
+   go mod tidy
+   ```
+3. **Run the Application:**
    ```bash
    go run main.go
    ```
-
-3. **Open in browser:**
+4. **Access the Application:**
+   Open your browser and navigate to:
    ```
    http://localhost:8080
    ```
+   Then, enter participant handles, select tags and difficulty ranges, and generate your contest.
 
 ---
 
-## 🚀 Usage
+## Contribution Guidelines
 
-- Launch the app with `go run main.go`  
-- Visit the local server URL in your browser  
-- Browse listed fairs directly from rendered pages  
-- Content is served from Go HTML templates and static folders
+Contributions are welcome! To contribute:
 
----
-
-## 🤝 Contribution Guidelines
-
-Contributions are welcome!
-
-1. Fork this repository  
-2. Create a new branch: `git checkout -b my-feature`  
-3. Make changes, then commit: `git commit -m "Added a new feature"`  
-4. Push your branch: `git push origin my-feature`  
-5. Open a pull request explaining your changes
-
----
-
-## 🧪 Testing
-
-Basic testing can be done by simply running:
-
-```bash
-go run main.go
-```
-
-Then manually verify routes and pages in the browser.  
-More structured tests can be added using Go’s `testing` package.
+1. **Fork the Repository.**
+2. **Create a New Branch:**
+   ```bash
+   git checkout -b feature-branch-name
+   ```
+3. **Commit Your Changes:**
+   ```bash
+   git commit -m "Describe your feature or fix"
+   ```
+4. **Push Your Branch:**
+   ```bash
+   git push origin feature-branch-name
+   ```
+5. **Open a Pull Request** on GitHub with details about your changes.
 
 ---
 
-## 🌐 Live Demo
+## Testing
 
-👉 [Live Demo Link](https://fair-mashup.onrender.com/) 
+Fair-Mashup is a self-contained web application. To test manually:
+
+- Run the application:
+  ```bash
+  go run main.go
+  ```
+- Verify participant input, tag/difficulty selection, and contest generation in your browser.
+
+For automated testing, consider adding tests using Go’s `testing` package.
 
 ---
 
-## 📞 Contact Information
+## Live Demo
+
+Explore the live version of Fair-Mashup here:  
+[Live Demo](https://fair-mashup.onrender.com/)
+
+---
+
+## Contact Information
 
 - **Name:** Yeneineh Seiba  
 - **GitHub:** [yesetoda](https://github.com/yesetoda)  
 - **LinkedIn:** [yeneineh (yesetoda) seiba](https://www.linkedin.com/in/yeneineh-seiba-88110227b/)  
-- **Email:** [yeneineh seiba](yeneinehseiba@gmail.com)
+- **Email:** [yeneinehseiba@gmail.com](mailto:yeneinehseiba@gmail.com)
+
+---
+
+© 2024 Fair-Mashup. All rights reserved.
